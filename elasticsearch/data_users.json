@@ -1,0 +1,4 @@
+{ "index" : { "_index" : "handson", "_type" : "users", "_id" : "101" } }
+{"userId":"u101","name":"Naoki Takezoe"}
+{ "index" : { "_index" : "handson", "_type" : "users", "_id" : "102" } }
+{"userId":"u102","name":"Takako Shimamoto"}

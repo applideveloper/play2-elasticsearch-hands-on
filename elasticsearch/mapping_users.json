@@ -1,0 +1,30 @@
+{
+  "mappings": {
+    "users": {
+      "dynamic": "strict",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "name": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "company": {
+          "type": "object",
+            "properties": {
+            "companyId": {
+              "type": "string",
+              "index": "not_analyzed"
+            },
+            "name": {
+              "type": "string",
+              "index": "not_analyzed"
+            }
+          }
+        }
+      }
+    }
+  }
+}

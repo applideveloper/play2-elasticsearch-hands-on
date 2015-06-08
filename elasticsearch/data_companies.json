@@ -1,0 +1,6 @@
+{ "index" : { "_index" : "handson", "_type" : "companies", "_id" : "1" } }
+{"companyId":"c1","name":"BizReach"}
+{ "index" : { "_index" : "handson", "_type" : "companies", "_id" : "2" } }
+{"companyId":"c2","name":"Stanby"}
+{ "index" : { "_index" : "handson", "_type" : "companies", "_id" : "3" } }
+{"companyId":"c3","name":"Careertrek"}
