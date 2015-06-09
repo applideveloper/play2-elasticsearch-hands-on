@@ -1,8 +1,5 @@
 package controllers
 
-import java.util
-
-import com.sksamuel.elastic4s._
 import com.sksamuel.elastic4s.ElasticDsl._
 import models.{User, QueryCondition}
 import org.elasticsearch.action.search.SearchResponse
@@ -10,20 +7,14 @@ import org.elasticsearch.search.{SearchHit, SearchHits}
 import org.elasticsearch.transport.RemoteTransportException
 import play.api.mvc._
 
-import play.api.db.slick._
-import models.Tables._
-import profile.simple._
-
 import play.api.libs.json._
 import utils.ElasticsearchUtil
 
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-object JsonController extends Controller {
 
-  // UsersRowをJSONに変換するためのWritesを定義
-  implicit val usersRowWritesFormat = Json.writes[UsersRow]
+object JsonController extends Controller {
 
   // ユーザ情報を受け取るためのケースクラス
   case class UserForm(name: String, companyId: Option[String])
@@ -243,7 +234,7 @@ object JsonController extends Controller {
     val cond = QueryCondition.form.bindFromRequest().value.getOrElse(QueryCondition())
 
     val future = ElasticsearchUtil.process { client =>
-      val definition = search in "handson" -> "users" size cond.size from cond.from
+      val definition = search in "handson" -> "users" size cond.size from cond.from sort(by field "userId")
 
       client.execute(definition).map { res =>
         res.getHits.getHits.map { hit =>

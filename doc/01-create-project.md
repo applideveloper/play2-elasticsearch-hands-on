@@ -1,4 +1,4 @@
-## Play本体のインストール
+# Play本体のインストール
 
 http://www.playframework.com/download からtypesafe-activator-1.3.2-minimal.zipをダウンロードし、解凍したディレクトリを環境変数PATHに追加します。
 

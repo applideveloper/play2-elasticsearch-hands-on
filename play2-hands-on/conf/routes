@@ -16,9 +16,13 @@ POST        /user/update            controllers.UserController.update
 POST        /user/remove/:id        controllers.UserController.remove(id: Long)
 
 # JSON API
-GET         /json/list              controllers.JsonController.list
-GET         /json/list-w-comment    controllers.JsonController.listWithComment
-GET         /json/list-asis         controllers.JsonController.listEntireSource
-POST        /json/create            controllers.JsonController.createUser()
-PUT         /json/update/:id        controllers.JsonController.updateUser(id: String)
-DELETE      /json/remove/:id        controllers.JsonController.removeUser(id: String)
+GET         /users                  controllers.JsonController.list
+GET         /users/list-w-comment   controllers.JsonController.listWithComment
+GET         /users/list-asis        controllers.JsonController.listEntireSource
+POST        /users                  controllers.JsonController.createUser()
+PUT         /users/:id              controllers.JsonController.updateUser(id: String)
+DELETE      /users/:id              controllers.JsonController.removeUser(id: String)
+
+GET         /users13                  controllers.JsonController13.listUsers
+GET         /users132                 controllers.JsonController13.listUsers2
+GET         /users133                 controllers.JsonController13.listUsers3

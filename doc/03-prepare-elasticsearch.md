@@ -1,71 +1,73 @@
-## ツールプロジェクトの準備
+# Elasticsearch の準備
 
-[slick-codegen.zip](https://github.com/bizreach/play2-hands-on/releases/download/20150329/slick-codegen.zip) をダウンロードし、以下のように`play2-hands-on`プロジェクトと同じディレクトリに展開します。
+## Elasticsearch のダウンロード
 
-```
-+-/play2-hands-on
-|   |
-|   +-/app
-|   |
-|   +-/conf
-|   |
-|   +-...
-|
-+-/slick-codegen
-    |
-    +-/project
-    |
-    +-/src
-    |
-    +-...
-```
+2015/6/5時点では、`1.5.2`が最新です。
 
-## H2の起動
+    $ curl -o workspace/elasticsearch-1.5.2.zip https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.5.2.zip
+    $ cd workspace
+    $ unzip elasticsearch-1.5.2.zip
 
-まず、`slick-codegen`プロジェクトの`h2/start.bat`をダブルクリックしてH2データベースを起動します。データベースには以下のスキーマのテーブルが作成済みの状態になっています。
+## Elasticsearch の起動
 
-[[images/er_diagram.png]]
+起動します。起動スクリプトをキックするだけです。
 
-## モデルの自動生成
+    $ cd elasticsearch-1.5.2
+    $ bin/elasticsearch
 
-SlickではタイプセーフなAPIを使用するために
+以下の様なログが表示されます。
 
-* タイプセーフなクエリで使うテーブル定義
-* エンティティオブジェクト
+    [11:44:54 elasticsearch-1.5.2]$ bin/elasticsearch
+    [2015-06-08 11:45:34,304][INFO ][node                     ] [Vashti] version[1.5.2], pid[77375], build[62ff986/2015-04-27T09:21:06Z]
+    [2015-06-08 11:45:34,304][INFO ][node                     ] [Vashti] initializing ...
+    [2015-06-08 11:45:34,310][INFO ][plugins                  ] [Vashti] loaded [], sites []
+    [2015-06-08 11:45:37,223][INFO ][node                     ] [Vashti] initialized
+    [2015-06-08 11:45:37,224][INFO ][node                     ] [Vashti] starting ...
+    [2015-06-08 11:45:37,404][INFO ][transport                ] [Vashti] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/10.199.30.108:9300]}
+    [2015-06-08 11:45:37,429][INFO ][discovery                ] [Vashti] elasticsearch/wlF7T2rYSF-gmDHaGp5QRg
+    [2015-06-08 11:45:41,212][INFO ][cluster.service          ] [Vashti] new_master [Vashti][wlF7T2rYSF-gmDHaGp5QRg][BIZ2014-MAC0011.local][inet[/10.199.30.108:9300]], reason: zen-disco-join (elected_as_master)
+    [2015-06-08 11:45:41,228][INFO ][http                     ] [Vashti] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/10.199.30.108:9200]}
+    [2015-06-08 11:45:41,229][INFO ][node                     ] [Vashti] started
+    [2015-06-08 11:45:41,244][INFO ][gateway                  ] [Vashti] recovered [0] indices into cluster_state
 
-を用意する必要がありますが、これらはSlickが標準で提供しているジェネレータを使用することでDBスキーマから自動生成することができます。
+cURLしてみましょう。
 
-`slick-codegen`プロジェクトのルートディレクトリで以下のコマンドを実行します。
+    $ curl http://localhost:9200
 
-```
-sbt gen-tables
-```
+    {
+      "status": 200,
+      "name": "Vashti",
+      "cluster_name": "elasticsearch",
+      "version": {
+        "number": "1.5.2",
+        "build_hash": "62ff9868b4c8a0c45860bebb259e21980778ab1c",
+        "build_timestamp": "2015-04-27T09:21:06Z",
+        "build_snapshot": false,
+        "lucene_version": "4.10.4"
+      },
+      "tagline": "You Know, for Search"
+    }
+    
+    
+## プラグインのインストール
+    
+次にプラグインをインストールします。とりあえず便利なツールを多く含む[KOPF](https://github.com/lmenezes/elasticsearch-kopf)
 
-すると`play2-hands-on`プロジェクトの`app/models`パッケージにモデルクラスが生成されます。
+    $ bin/plugin --install lmenezes/elasticsearch-kopf
 
-[[images/gen_model.png]]
+    [18:44:52 elasticsearch-1.5.2]$ bin/plugin --install lmenezes/elasticsearch-kopf
+    -> Installing lmenezes/elasticsearch-kopf...
+    Trying https://github.com/lmenezes/elasticsearch-kopf/archive/master.zip...
+    Downloading ........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................DONE
+    Installed lmenezes/elasticsearch-kopf into /Users/satoshi.kobayashi/workspace/github/bizreach/play2-elasticsearch-hands-on/elasticsearch/workspace/elasticsearch-1.5.2/plugins/kopf
+    Identified as a _site plugin, moving to _site structure ...
 
-## DB接続の設定
+※ プラグインによって、再起動が必要な場合と不要な場合があるようです(?)。
 
-`play2-hands-on`プロジェクトの`conf/application.conf`にDB接続のための設定を行います。
+## 動作チェック
 
-**変更前：**
+    http://localhost:9200/_status
+    http://localhost:9200/_cat
+    http://localhost:9200/_mapping
 
-```properties
-# db.default.driver=org.h2.Driver
-# db.default.url="jdbc:h2:mem:play"
-# db.default.user=sa
-# db.default.password=""
-```
 
-**変更後：**
-
-```properties
-db.default.driver=org.h2.Driver
-db.default.url="jdbc:h2:tcp://localhost/data"
-db.default.user=sa
-db.default.password=sa
-```
-
-----
-[[＜IDEの準備に戻る|02.IDEの準備]] | [[ルーティングの定義に進む＞|04.ルーティングの定義]]

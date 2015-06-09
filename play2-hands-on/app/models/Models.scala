@@ -7,7 +7,7 @@ import play.api.data.Forms._
 import play.api.data.{Form, FormError}
 import play.api.data.format.Formatter
 
-case class User(userId: String, name: String, companyId: Option[String])
+case class User(userId: String, name: String, companyId: Option[String] = None)
 
 object User {
   def create(name: String, companyId: Option[String]): User = {

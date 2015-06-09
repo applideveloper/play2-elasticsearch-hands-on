@@ -1,10 +1,14 @@
-Elasticsearch のダウンロード
+# Elasticsearch の準備
+
+## Elasticsearch のダウンロード
 
 2015/6/5時点では、`1.5.2`が最新です。
 
     $ curl -o workspace/elasticsearch-1.5.2.zip https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.5.2.zip
     $ cd workspace
     $ unzip elasticsearch-1.5.2.zip
+
+## Elasticsearch の起動
 
 起動します。起動スクリプトをキックするだけです。
 
@@ -41,3 +45,27 @@ Elasticsearch のダウンロード
       },
       "tagline": "You Know, for Search"
     }
+    
+    
+## プラグインのインストール
+    
+次にプラグインをインストールします。とりあえず便利なツールを多く含む[KOPF](https://github.com/lmenezes/elasticsearch-kopf)
+
+    $ bin/plugin --install lmenezes/elasticsearch-kopf
+
+    [18:44:52 elasticsearch-1.5.2]$ bin/plugin --install lmenezes/elasticsearch-kopf
+    -> Installing lmenezes/elasticsearch-kopf...
+    Trying https://github.com/lmenezes/elasticsearch-kopf/archive/master.zip...
+    Downloading ........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................DONE
+    Installed lmenezes/elasticsearch-kopf into /Users/satoshi.kobayashi/workspace/github/bizreach/play2-elasticsearch-hands-on/elasticsearch/workspace/elasticsearch-1.5.2/plugins/kopf
+    Identified as a _site plugin, moving to _site structure ...
+
+※ プラグインによって、再起動が必要な場合と不要な場合があるようです(?)。
+
+## 動作チェック
+
+    http://localhost:9200/_status
+    http://localhost:9200/_cat
+    http://localhost:9200/_mapping
+
+

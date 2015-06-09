@@ -12,11 +12,11 @@ object ElasticsearchUtil {
 
 
   /**
-   * E/S 処理
+   * 処理用
    */
   def process[A](f: ElasticClient => A): A =
     client.map(f).getOrElse{
-      throw new IllegalStateException("E/S client is not initialized.")
+      throw new IllegalStateException("Elasticsearch client is not initialized.")
     }
 
 
@@ -47,12 +47,12 @@ object ElasticsearchUtil {
       }
     }
 
-    configs.map{ case (host, port, extras) => remote(host, port, extras:_*)}
+    client = configs.map{ case (host, port, extras) => remote(host, port, extras:_*)}
   }
 
 
   /**
-   * ElasticClient クライアントの初期化
+   * elastic4s ElasticClient クライアントの初期化
    */
   private[this] def remote(host: String, port: Int, settings: (String, String)*): ElasticClient = {
     val built = settings
