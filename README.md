@@ -10,6 +10,7 @@
 * [13.ユーザ一覧APIの仮実装](doc/13-implement-temp-users.md)
 * [21.Elasticsearchの概要](doc/21-elasticsearch-overview.md)
 * [22.ElasticsearchのCRUD操作](doc/22-elasticsearch-crud.md)
+* [23.Elasticsearchへのデータ投入](doc/23-prepare-test-data.md)
 * [31.ユーザ一覧APIの本実装](doc/31-list.md)
 * [32.ユーザ登録・更新・削除APIの実装](doc/32-update.md)
 

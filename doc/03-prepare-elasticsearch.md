@@ -4,8 +4,8 @@
 
 2015/6/5時点では、`1.5.2`が最新です。
 
-    $ curl -o workspace/elasticsearch-1.5.2.zip https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.5.2.zip
-    $ cd workspace
+    $ cd /anywhere/you/want/to/go
+    $ curl -o https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.5.2.zip
     $ unzip elasticsearch-1.5.2.zip
 
 ## Elasticsearch の起動
@@ -47,10 +47,10 @@ cURLしてみましょう。
       },
       "tagline": "You Know, for Search"
     }
-    
-    
+
+
 ## プラグインのインストール
-    
+
 次にプラグインをインストールします。とりあえず便利なツールを多く含む[KOPF](https://github.com/lmenezes/elasticsearch-kopf)
 
     $ bin/plugin --install lmenezes/elasticsearch-kopf
@@ -69,5 +69,3 @@ cURLしてみましょう。
     http://localhost:9200/_status
     http://localhost:9200/_cat
     http://localhost:9200/_mapping
-
-
