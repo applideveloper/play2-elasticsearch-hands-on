@@ -20,7 +20,7 @@ object JsonController extends Controller {
   /**
    * 一覧表示
    */
-  def list = Action.async { implicit rs =>
+  def listUsers = Action.async { implicit rs =>
     val future = ElasticsearchUtil.process { client =>
 
       val query = search in "handson" -> "users" sort(by field "userId")

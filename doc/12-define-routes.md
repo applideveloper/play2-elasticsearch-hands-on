@@ -11,6 +11,7 @@ POST      /users                  controllers.JsonController.createUser
 PUT       /users/:id              controllers.JsonController.updateUser(id: String)
 
 DELETE    /users/:id              controllers.JsonController.removeUser(id: String)
+
 ```
 
 > **POINT**

@@ -61,6 +61,6 @@
 * ユーザ情報を編集する
 * ユーザを削除する
 
-![作成するアプリケーションの画面遷移](https://github.com/bizreach/play2-hands-on/wiki/images/flow.png)
+オリジナルでは下記のようなフローになっていますが、APIのみのため編集画面はありません。また、API
 
-また、後半ではこのアプリケーションと同じCRUD処理を行うJSONベースのWeb APIも作成します。
+![作成するアプリケーションの画面遷移](https://github.com/bizreach/play2-hands-on/wiki/images/flow.png)

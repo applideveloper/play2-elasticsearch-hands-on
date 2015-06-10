@@ -142,5 +142,5 @@ object JsonController extends Controller with UserService {
 ```
 
 > **POINT**
-> * `implicit` を使わない
-> * JSONオブジェクト
+> * `implicit` を使わない書き方
+> * JSONオブジェクトをベタ書きする書き方
