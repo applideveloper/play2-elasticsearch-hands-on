@@ -7,12 +7,12 @@ import play.api.data.Forms._
 import play.api.data.{Form, FormError}
 import play.api.data.format.Formatter
 
-case class User(userId: String, name: String, companyId: Option[String] = None)
+case class User(userId: String, name: String, company: Option[Company] = None)
 
 object User {
-  def create(name: String, companyId: Option[String]): User = {
+  def create(name: String, company: Option[Company]): User = {
     val id = "u" + ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS"))
-    User(id, name, companyId)
+    User(id, name, company)
   }
 }
 
@@ -26,6 +26,9 @@ object Company {
 }
 
 
+/**
+ * QueryStringの値を取得したり、フォームから値を取得したりする場合に case class + Form で実装する 
+ */
 case class QueryCondition(
   size: Int = QueryCondition.defaultLimit,
   from: Int = QueryCondition.defaultOffset,

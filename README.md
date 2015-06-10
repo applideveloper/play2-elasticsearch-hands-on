@@ -12,12 +12,10 @@
 * [11.コントローラの雛形の作成](doc/11-controller-skeleton.md)
 * [12.ルーティングの定義](doc/12-define-routes.md)
 * [13.ユーザ一覧APIの仮実装](doc/13-implement-temp-users.md)
-* [21.ElasticsearchのCRUD操作](doc/.md)
-* [22.Elasticsearchのプラグイン](doc/.md)
-* [31.ユーザ一覧APIの本実装](doc/.md)
-* [32.ユーザ登録APIの実装](doc/.md)
-* [33.ユーザ更新APIの実装](doc/.md)
-* [34.ユーザ削除APIの実装](doc/.md)
+* [21.Elasticsearchの概要](doc/21-elasticsearch-overview.md)
+* [22.ElasticsearchのCRUD操作](doc/22-elasticsearch-crud.md)
+* [31.ユーザ一覧APIの本実装](doc/31-list.md)
+* [32.ユーザ登録・更新・削除APIの実装](doc/32-update.md)
 
 統合中:
 

@@ -12,7 +12,7 @@ libraryDependencies ++= Seq(
   //  cache,
   //  ws,
   // Elasticsearch and JSON
-  "com.typesafe.play"           %%  "play-slick"            % "0.8.1",
+  //"com.typesafe.play"           %%  "play-slick"            % "0.8.1",
   "com.sksamuel.elastic4s"      %%  "elastic4s"             % "1.5.6"
     excludeAll(
     ExclusionRule(organization = "org.scala-lang", name = "scala-library"),
