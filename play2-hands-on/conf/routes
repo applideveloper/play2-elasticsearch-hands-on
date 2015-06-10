@@ -9,14 +9,14 @@ GET         /                       controllers.Application.index
 GET         /assets/*file           controllers.Assets.at(path="/public", file)
 
 # JSON API
-GET         /users                  controllers.JsonController.list
-GET         /users/list-w-comment   controllers.JsonController.listWithComment
-POST        /users                  controllers.JsonController.createUser()
-PUT         /users/:id              controllers.JsonController.updateUser(id: String)
-DELETE      /users/:id              controllers.JsonController.removeUser(id: String)
+#GET         /users                  controllers.JsonController.list
+#GET         /users/list-w-comment   controllers.JsonController.listWithComment
+#POST        /users                  controllers.JsonController.createUser()
+#PUT         /users/:id              controllers.JsonController.updateUser(id: String)
+#DELETE      /users/:id              controllers.JsonController.removeUser(id: String)
 
 # Yet another JSON API
-GET         /users2                 controllers.AnotherJsonController.listUsers2
-GET         /users3                 controllers.AnotherJsonController.listUsers3
-GET         /users4                 controllers.AnotherJsonController.listUsers4
-GET         /users5                 controllers.AnotherJsonController.listEntireSource
+#GET         /users2                 controllers.AnotherJsonController.listUsers2
+#GET         /users3                 controllers.AnotherJsonController.listUsers3
+#GET         /users4                 controllers.AnotherJsonController.listUsers4
+#GET         /users5                 controllers.AnotherJsonController.listEntireSource

@@ -6,5 +6,5 @@
 /.project
 /.settings
 /RUNNING_PID
-/play2-hands-on/conf/local.conf
+/play2-hands-on-master/conf/local.conf
 /elasticsearch/workspace
