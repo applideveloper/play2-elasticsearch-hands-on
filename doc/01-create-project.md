@@ -10,11 +10,14 @@ activatorをローカルにインストールすることは不要です。
 
 コマンドプロンプトで以下のコマンドを実行します。
 
+    $ git clone https://github.com/bizreach/play2-elasticsearch-hands-on.git
     $ cd play2-hands-on
     $ ./activator
     [play2-hands-on] $ compile
 
-初回は、activatorの起動とcompileを合わせて30分程度かかることがあります。
+初回は、activatorの起動とcompileを合わせて30分程度かかることがあります。次にactivatorを起動したまま、アプリケーションを起動します。
+
+    [play2-hands-on] $ run
 
 ブラウザから http://localhost:9000/ にアクセスし、以下の画面が表示されることを確認します。
 
