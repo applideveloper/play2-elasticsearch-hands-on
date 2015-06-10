@@ -2,7 +2,7 @@
 
 ## インデックス
 
-* [01.プロジェクトの作成](https://github.com/bizreach/play2-hands-on/wiki/01.%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90)
+* [01.プロジェクトの作成](01-create-project.md)
 * [02.IDEの準備](https://github.com/bizreach/play2-hands-on/wiki/02.IDE%E3%81%AE%E6%BA%96%E5%82%99)
 * [03.Elasticsearchの準備](doc/03-prepare-elasticsearch.md)
 * [11.コントローラの雛形の作成](doc/11-controller-skeleton.md)
